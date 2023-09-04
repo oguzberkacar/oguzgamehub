@@ -77,7 +77,10 @@ export default function Tales({ c_name }) {
         promptElement.classList.remove("hidden");
         promptElement.classList.add("flex");
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        setLoader(false);
+      });
   }
 
   return (
