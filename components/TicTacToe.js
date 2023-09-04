@@ -93,7 +93,7 @@ const TicTacToe = () => {
         <span className={`display-player player${currentPlayer}`}>
           {currentPlayer}
         </span>
-        's turn
+        &apos;s turn
       </section>
       <section className="container">
         {board.map((tile, index) => (
