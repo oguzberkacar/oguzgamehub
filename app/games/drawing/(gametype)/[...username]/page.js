@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { ChromePicker } from "react-color";
 import html2canvas from "html2canvas";
 
-function page() {
+function Page() {
   const [color, setColor] = useState("#000");
   const [drawIdea, setDrawIdea] = useState("");
   const [seconds, setSeconds] = useState(60);
@@ -159,4 +159,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
