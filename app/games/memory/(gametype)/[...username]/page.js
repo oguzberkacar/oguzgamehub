@@ -4,7 +4,7 @@ import SelectGameType from "@/components/SelectGameType";
 import TicTacToe from "@/components/TicTacToe";
 import React, { useState } from "react";
 
-function page({ params }) {
+function Page({ params }) {
   const [name, setName] = useState(params.username[1]);
   const [isNameSet, setIsNameSet] = useState(true);
 
@@ -48,4 +48,4 @@ function page({ params }) {
   );
 }
 
-export default page;
+export default Page;

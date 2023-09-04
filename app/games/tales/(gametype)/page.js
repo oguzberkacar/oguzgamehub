@@ -1,4 +1,4 @@
-function page({ params }) {
+function Page({ params }) {
   console.log('dasdas');
   return (
     <div>
@@ -8,4 +8,4 @@ function page({ params }) {
   );
 }
 
-export default page;
+export default Page;
