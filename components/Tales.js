@@ -8,10 +8,8 @@ import { useRouter } from "next/navigation";
 const inter = Inter({ subsets: ["latin"] });
 import parse from "html-react-parser";
 
-export default function Tales({c_name}) {
+export default function Tales({ c_name }) {
   const router = useRouter();
-
- 
 
   //   useEffect(() => {
   //     // Perform localStorage action
@@ -23,8 +21,6 @@ export default function Tales({c_name}) {
   //   }, []);
 
   //   const [city, setCity] = useState("Antalya");
-
-
 
   const [name, setName] = useState(c_name);
   const [petType, setPetType] = useState("cat");
@@ -47,15 +43,9 @@ export default function Tales({c_name}) {
     return formattedParagraphs;
   }
 
-  useEffect(() => {
-    console.log("pt", petType);
-  }, [petType]);
-
   function handlePrompt() {
     setLoader(true);
-    console.log("pt2", petType);
     setImageSrc(`/img/tales/${gender}_${petType}.png`);
-    console.log(`/${gender}_${petType}.png`);
 
     var myHeaders = new Headers();
     // myHeaders.append("Content-Type", "appliati/json");
@@ -73,7 +63,7 @@ export default function Tales({c_name}) {
       redirect: "follow",
     };
 
-    fetch("http://localhost:3000/api/tales", requestOptions)
+    fetch("/api/tales", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         let data = JSON.parse(result);
@@ -109,13 +99,15 @@ export default function Tales({c_name}) {
       <div id="prompt" className="hidden items-center justify-start">
         {/* copy text btn */}
         <div className="flex flex-col justify-center bgwhiteopacity whitespace-break-spaces px-4 py-8 rounded-lg items-center relative w-full my-24 max-w-2xl">
-          <Image
-            src={imageSrc}
-            className="mt-8 mb-16 rounded-md"
-            alt="tale_photo"
-            width={300}
-            height={200}
-          />
+          {imageSrc !== "" && (
+            <Image
+              src={imageSrc}
+              className="mt-8 mb-16 rounded-md"
+              alt="tale_photo"
+              width={300}
+              height={200}
+            />
+          )}
           {parse(answer)}
         </div>
       </div>
