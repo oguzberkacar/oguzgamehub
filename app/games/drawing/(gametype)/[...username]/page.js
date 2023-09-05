@@ -94,7 +94,9 @@ function Page() {
     const lineColor = color;
     const lineWidth = 5;
 
-    let startPoint = prevPoint ?? curentPoint;
+    // let startPoint = prevPoint ?? curentPoint;
+
+    let startPoint = prevPoint !== undefined ? prevPoint : curentPoint;
 
     ctx.beginPath();
     ctx.lineWidth = lineWidth;

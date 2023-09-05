@@ -53,7 +53,6 @@ export default function Tales({ c_name }) {
 
     let prompt = `Write me fairy tale for children under 12 years old, not exceeding 200 words, suitable for children under 12 years old. Main Character: ${name} Main Character's Pet: ${petType} and name is ${petName} Topic: ${tale}`;
 
-    // var raw = { prompt: prompt };
     var raw = JSON.stringify({ prompt: prompt });
 
     var requestOptions = {
@@ -62,6 +61,8 @@ export default function Tales({ c_name }) {
       body: raw,
       redirect: "follow",
     };
+
+    // // post request to api as form data
 
     fetch("/api/tales", requestOptions)
       .then((response) => response.text())
@@ -81,6 +82,38 @@ export default function Tales({ c_name }) {
         console.log("error", error);
         setLoader(false);
       });
+
+    // var myHeaders = new Headers();
+
+    // var formdata = new FormData();
+    // formdata.append("message", prompt);
+
+    // var requestOptions = {
+    //   method: 'POST',
+    //   headers: myHeaders,
+    //   body: formdata,
+    //   redirect: 'follow'
+    // };
+
+    //  fetch("https://oguzberkacar.xyz", requestOptions)
+    //   .then((response) => response.text())
+    //   .then((result) => {
+    //     let data = JSON.parse(result);
+    //     setLoader(false);
+    //     // replace NEWP- with new line
+    //     // data = data.replaceAll("NEWP-", "\n");
+    //     let talessplit = data.choices[0].message.content
+    //     talessplit = formatTextWithPTags(talessplit);
+    //     console.log(data);
+    //     setAnswer(talessplit);
+    //     let promptElement = document.getElementById("prompt");
+    //     promptElement.classList.remove("hidden");
+    //     promptElement.classList.add("flex");
+    //   })
+    //   .catch((error) => {
+    //     console.log("error", error);
+    //     setLoader(false);
+    //   });
   }
 
   return (
